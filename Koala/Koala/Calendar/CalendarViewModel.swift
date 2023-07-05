@@ -17,6 +17,8 @@ final class CalendarViewModel: ObservableObject {
     var calendarDataSubject = PassthroughSubject<CalendarData, Never>()
     @Published var calendarData = CalendarData(monthList: [])
     @Published var selectedMonthIdx: UUID = .init()
+//    @Published var selectedMonthIdx: UUID = selectedMonth.id
+    @Published var selectedMonth: MonthData = .dummy
     
     private var bag = Set<AnyCancellable>()
     
@@ -37,11 +39,62 @@ extension CalendarViewModel {
             .receive(on: RunLoop.main)
             .sink { result in
                 self.calendarData = result
-                if let todayMonth = self.calendarData.monthList.filter({$0.year == 2021 && $0.month == 9}).first {
-                    print("### todayMonth: \(todayMonth.year), \(todayMonth.month)")
-                    self.selectedMonthIdx = todayMonth.id
+                self.moveToTodayMonth()
+            }.store(in: &bag)
+        
+        // 선택된 달과 Idx 바인딩
+        $selectedMonth
+            .receive(on: RunLoop.main)
+            .filter { $0.id != self.selectedMonthIdx }
+            .map { $0.id }
+            .assign(to: &$selectedMonthIdx)
+        
+        // 선택된 Idx와 달 바인딩
+        $selectedMonthIdx
+            .receive(on: RunLoop.main)
+            .filter { $0 != self.selectedMonth.id }
+            .sink { selectedId in
+                if let selectedNewMonth = self.calendarData.monthList.filter({ selectedId == $0.id }).first {
+                    self.selectedMonth = selectedNewMonth
                 }
             }.store(in: &bag)
+            
+    }
+    
+    func moveToTodayMonth() {
+        let nowDate = Date()
+        let dfYear = DateFormatter()
+        let dfMonth = DateFormatter()
+        dfYear.dateFormat = "yyyy"
+        dfMonth.dateFormat = "MM"
+        
+        let thisYear = Int(dfYear.string(from: nowDate)) ?? 0
+        let thisMonth = Int(dfMonth.string(from: nowDate)) ?? 0
+        
+        if let todayMonth = self.calendarData.monthList.filter({$0.year == thisYear && $0.month == thisMonth}).first {
+            self.selectedMonth = todayMonth
+        }
+    }
+    
+    func moveToNextMonth() {
+        let nIdx = selectedMonth.index + 1
+        
+        guard let lastIdx = calendarData.monthList.last?.index,
+              nIdx <= lastIdx else {
+            return
+        }
+        
+        self.selectedMonth = calendarData.monthList[nIdx]
+    }
+    
+    func moveToPreviousMonth() {
+        let pIdx = selectedMonth.index - 1
+        
+        guard pIdx >= 0 else {
+            return
+        }
+        
+        self.selectedMonth = calendarData.monthList[pIdx]
     }
 }
 
@@ -71,7 +124,7 @@ extension CalendarViewModel {
         let thisYear = Int(dfYear.string(from: nowDate)) ?? 0
         let thisMonth = Int(dfMonth.string(from: nowDate)) ?? 0
         
-        // 끝나는 날짜 구하기
+        // 끝나는 날짜 구하기 (올해 + 2년 최대)
         let endYear = thisYear + 2
         let endMonth = thisMonth
 

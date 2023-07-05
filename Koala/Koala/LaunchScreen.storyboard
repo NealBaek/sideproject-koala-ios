@@ -70,7 +70,7 @@
     <resources>
         <image name="LaunchScreenImg" width="682.66668701171875" height="682.66668701171875"/>
         <namedColor name="LaunchScreenBg">
-            <color red="0.57774698734283447" green="0.66952282190322876" blue="0.65658605098724365" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
