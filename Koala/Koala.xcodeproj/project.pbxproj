@@ -19,6 +19,7 @@
 		4921D6712920E66D00A9C73E /* KoalaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4921D6702920E66D00A9C73E /* KoalaTests.swift */; };
 		4921D67B2920E66D00A9C73E /* KoalaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4921D67A2920E66D00A9C73E /* KoalaUITests.swift */; };
 		4921D67D2920E66D00A9C73E /* KoalaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4921D67C2920E66D00A9C73E /* KoalaUITestsLaunchTests.swift */; };
+		49A978C22A54E377000518A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49A978C12A54E377000518A2 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,8 @@
 		4921D6762920E66D00A9C73E /* KoalaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KoalaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4921D67A2920E66D00A9C73E /* KoalaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoalaUITests.swift; sourceTree = "<group>"; };
 		4921D67C2920E66D00A9C73E /* KoalaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoalaUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		49A978C02A54E1AC000518A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		49A978C12A54E377000518A2 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,8 +117,10 @@
 		4921D6592920E66C00A9C73E /* Koala */ = {
 			isa = PBXGroup;
 			children = (
-				4902A0362A54C8A10006845B /* Calendar */,
+				49A978C02A54E1AC000518A2 /* Info.plist */,
+				49A978C12A54E377000518A2 /* LaunchScreen.storyboard */,
 				4921D65A2920E66C00A9C73E /* KoalaApp.swift */,
+				4902A0362A54C8A10006845B /* Calendar */,
 				4921D65C2920E66C00A9C73E /* ContentView.swift */,
 				4921D65E2920E66D00A9C73E /* Assets.xcassets */,
 				4921D6632920E66D00A9C73E /* Persistence.swift */,
@@ -254,6 +259,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49A978C22A54E377000518A2 /* LaunchScreen.storyboard in Resources */,
 				4921D6622920E66D00A9C73E /* Preview Assets.xcassets in Resources */,
 				4921D65F2920E66D00A9C73E /* Assets.xcassets in Resources */,
 			);
@@ -450,9 +456,10 @@
 				DEVELOPMENT_TEAM = 6WLZKAUYYL;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Koala/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -479,9 +486,10 @@
 				DEVELOPMENT_TEAM = 6WLZKAUYYL;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Koala/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

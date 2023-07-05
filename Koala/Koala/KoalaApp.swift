@@ -11,6 +11,11 @@ import SwiftUI
 struct KoalaApp: App {
     let persistenceController = PersistenceController.shared
 
+    init() {
+        // 런치 스크린 타이머
+        Thread.sleep(forTimeInterval: 1)
+    }
+    
     var body: some Scene {
         WindowGroup {
             CalendarView()
