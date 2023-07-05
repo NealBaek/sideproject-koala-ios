@@ -20,7 +20,7 @@ struct CalendarView: View {
             HStack(spacing: 0){
                 
                 Spacer()
-                    .frame(width: 100)
+                    .frame(width: 70)
                 
                 Spacer()
                 
